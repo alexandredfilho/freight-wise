@@ -9,6 +9,11 @@ module Users
   #
   class RegistrationsController < Devise::RegistrationsController
     respond_to :json
+    before_action :configure_sign_up_params, only: [:create]
+
+    def create
+      super
+    end
 
     private
 
@@ -39,6 +44,12 @@ module Users
                }
              },
              status: :unprocessable_entity
+    end
+
+    def configure_sign_up_params
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password,
+                                                         :password_confirmation,
+                                                         { company_attributes: [:name] }])
     end
   end
 end
