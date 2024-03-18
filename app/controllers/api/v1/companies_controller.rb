@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Api
+module API
   module V1
     #
     # This controller is responsible  for creating users sessions
@@ -10,10 +10,13 @@ module Api
       before_action :set_company, only: %i[show update destroy]
 
       def index
-        @companies = Company.all.order(:name)
+        @companies = Company.all.order(:name).includes(:users, :carriers)
 
-        render json: CompanySerializer.new(@companies).serializable_hash[:data][:attributes],
-               status: :ok
+        serialized_companies = @companies.map do |company|
+          CompanySerializer.new(company).serializable_hash[:data][:attributes]
+        end
+
+        render json: serialized_companies, status: :ok
       end
 
       def show
