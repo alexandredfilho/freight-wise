@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Api
+module API
   module V1
     #
     # Company serializer
@@ -8,8 +8,6 @@ module Api
     class CompanySerializer
       include JSONAPI::Serializer
       attributes :id, :name, :created_at
-
-      has_many :users
     end
   end
 end
