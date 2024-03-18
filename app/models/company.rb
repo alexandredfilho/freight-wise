@@ -5,4 +5,15 @@
 #
 class Company < ApplicationRecord
   has_many :users
+  has_many :carriers
 end
+
+# == Schema Information
+#
+# Table name: companies
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
