@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_15_194428) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_18_233417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,6 +26,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_15_194428) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "freight_charges", force: :cascade do |t|
+    t.string "table"
+    t.bigint "carrier_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["carrier_id"], name: "index_freight_charges_on_carrier_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_15_194428) do
   end
 
   add_foreign_key "carriers", "companies"
+  add_foreign_key "freight_charges", "carriers"
   add_foreign_key "users", "companies"
 end
