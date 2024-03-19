@@ -1,5 +1,11 @@
+# frozen_string_literal: true
+
+#
+# This model is responsible to create new instances of Carriers
+#
 class Carrier < ApplicationRecord
   belongs_to :company
+  has_many :freight_charges
 end
 
 # == Schema Information
