@@ -6,6 +6,7 @@
 class Company < ApplicationRecord
   has_many :users
   has_many :carriers
+  has_many :customers
 end
 
 # == Schema Information
