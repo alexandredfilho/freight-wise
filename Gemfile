@@ -14,6 +14,7 @@ gem 'cancancan'
 gem 'devise'
 gem 'devise-jwt'
 gem 'dotenv-rails'
+gem 'httparty'
 gem 'jsonapi-serializer'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
@@ -35,6 +36,7 @@ group :development, :test do
   gem 'ruby-lsp', require: false
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
+  gem 'tty-spinner'
 end
 
 group :development do
