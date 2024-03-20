@@ -3,7 +3,7 @@
 module API
   module V1
     #
-    # This controller is responsible  for creating users sessions
+    # This controller is responsible for handle company requests
     #
     class CompaniesController < ApplicationController
       before_action :authenticate_user!
