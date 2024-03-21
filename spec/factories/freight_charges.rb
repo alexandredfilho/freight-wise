@@ -1,7 +1,8 @@
 FactoryBot.define do
   factory :freight_charge do
-    table { "MyString" }
-    carrier { nil }
+    association :carrier, factory: :carrier
+
+    table { Faker::Commerce.product_name }
   end
 end
 

@@ -1,7 +1,9 @@
 FactoryBot.define do
   factory :state do
-    name { "MyString" }
-    acronym { "MyString" }
+    association :city, factory: :city
+
+    name { Faker::Address.state }
+    acronym { Faker::Address.state_abbr }
   end
 end
 

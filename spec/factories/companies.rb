@@ -1,6 +1,10 @@
 FactoryBot.define do
   factory :company do
-    name { "MyString" }
+    association :user, factory: :user
+    association :carrier, factory: :carrier
+    association :customer, factory: :customer
+
+    name { Faker::Company.name }
   end
 end
 
