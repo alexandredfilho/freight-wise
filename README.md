@@ -1,24 +1,68 @@
-# README
+<h1 align="center">
+  Freight Wise
+</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  </hr>
 
-Things you may want to cover:
+  <h4 align="center">This is a personal project that aims to put to the test my knowledge in Ruby on Rails :heart: and mainly the design and development of a freight control system <ins>(API only)</ins> for all businesses. </h4>
+</br>
+<p align="center">
 
-* Ruby version
+# Description
+## :rocket: Technologies
+This project was developed for [Alexandre Domingos Filho](https://github.com/alexandredfilho) with the following technologies:
 
-* System dependencies
+-  [Ruby@3.2.2](https://www.ruby-lang.org/en/)
+-  [Rails@7.0.8.1](https://rubyonrails.org/)
+-  [PostgreSQL@1.2.3](https://www.postgresql.org/)
+-  [Devise](https://github.com/heartcombo/devise)
+-  [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt)
 
-* Configuration
+## Pre-requirements
 
-* Database creation
+Make Sure you have Git and PostgreSql installed! If you do not, check the official documentation of it and make sure to install the latest stable version.
 
-* Database initialization
+Take a look at your operational system installation steps:
+-  [Git Installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+-  [PostgreSQL Install](https://www.postgresql.org/download/)
 
-* How to run the test suite
+To start working with this project is very simple, you just need:
 
-* Services (job queues, cache servers, search engines, etc.)
+<code> _Open your terminal or console tab and enter the commands below, respectively:_</code>
 
-* Deployment instructions
+Clone this repository on your local machine using the git command:
 
-* ...
+> git clone
+
+Now it's time to prepare your local environment with the necessary dependencies and also prepare the database. Run the command below and wait, after the setup is complete, the environment will be prepared and ready to receive requests:
+
+> bin/setup
+
+</hr>
+
+Congratulations, the API is ready to use! :tada:
+</hr>
+
+If you need to restart the API, press `ctrl+c` to stop the server and run the command below to initialize the API again:
+
+> bin/dev
+
+</hr>
+
+## Remember
+
+As this project is API only, you will need to log into the system using <code>Postman</code> or other software to obtain the <code>JWT</code> token before making any changes to the tables!
+
+## Unit and integration tests
+The tests are being built using the following gems:
+
+-  [RSpec-rails](https://github.com/rspec/rspec-rails)
+-  [Shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
+
+To run the tests, simply use the commands below:
+
+<i>This command runs all tests:</i>
+> bundle exec rspec .
+
+<i>This other one runs each test individually:</i>
+> bundle exec rspec ./test_path_spec.rb
