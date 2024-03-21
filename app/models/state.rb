@@ -1,5 +1,13 @@
+# frozen_string_literal: true
+
+#
+# This model is responsible to create new instances of States
+#
 class State < ApplicationRecord
   has_many :cities
+
+  validates :name, presence: true
+  validates :acronym, presence: true
 end
 
 # == Schema Information

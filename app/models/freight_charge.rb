@@ -5,6 +5,8 @@
 #
 class FreightCharge < ApplicationRecord
   belongs_to :carrier
+
+  validates :table, presence: true, uniqueness: true
 end
 
 # == Schema Information

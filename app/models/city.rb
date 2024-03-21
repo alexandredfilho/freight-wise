@@ -1,5 +1,12 @@
+# frozen_string_literal: true
+
+#
+# This model is responsible to create new instances of Cities
+#
 class City < ApplicationRecord
   belongs_to :state
+
+  validates :name, presence: true, uniqueness: true
 end
 
 # == Schema Information
