@@ -4,7 +4,7 @@
 
   </hr>
 
-  <h4 align="center">This is a personal project that aims to put to the test my knowledge in Ruby on Rails :heart: and mainly the design and development of a freight control system <ins>(API only)</ins> for all businesses. </h4>
+  <h4 align="center">This is a personal project that aims to put to the test my knowledge in Ruby on Rails :heart: and mainly the design and development of a freight control system (API only) for all types of businesses. </h4>
 </br>
 <p align="center">
 
