@@ -5,7 +5,6 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
-
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'factory_bot_rails'
 
@@ -37,7 +36,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  # config.fixture_path = Rails.root.join('spec/fixtures')
+  config.fixture_path = Rails.root.join('spec/fixtures')
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -66,6 +65,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
   config.tty = true
 
   # Use the specified formatter
@@ -74,11 +74,10 @@ RSpec.configure do |config|
   # Configure factory bot methods
   config.include FactoryBot::Syntax::Methods
 
-end
-
-  Shoulda::Matchers.configure do |config|
-    config.integrate do |with|
+  Shoulda::Matchers.configure do |shoulda_config|
+    shoulda_config.integrate do |with|
       with.test_framework :rspec
       with.library :rails
+    end
   end
 end
