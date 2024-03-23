@@ -4,9 +4,10 @@
 # This model is responsible to create new instances of Cities
 #
 class City < ApplicationRecord
+  belongs_to :address
   belongs_to :state
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
 end
 
 # == Schema Information
