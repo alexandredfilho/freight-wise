@@ -5,6 +5,7 @@
 #
 class Customer < ApplicationRecord
   belongs_to :company
+  has_many :addresses, as: :addressable
 
   validates :name, presence: true, uniqueness: true
 end
