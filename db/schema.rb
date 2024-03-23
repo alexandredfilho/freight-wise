@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_20_003758) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_23_151746) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "street_details"
+    t.bigint "state_id", null: false
+    t.bigint "city_id", null: false
+    t.string "zip_code"
+    t.string "addressable_type", null: false
+    t.bigint "addressable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+    t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["state_id"], name: "index_addresses_on_state_id"
+  end
 
   create_table "carriers", force: :cascade do |t|
     t.string "name", null: false
@@ -75,6 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_20_003758) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "cities"
+  add_foreign_key "addresses", "states"
   add_foreign_key "carriers", "companies"
   add_foreign_key "cities", "states"
   add_foreign_key "customers", "companies"
