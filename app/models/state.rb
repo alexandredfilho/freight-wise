@@ -4,10 +4,11 @@
 # This model is responsible to create new instances of States
 #
 class State < ApplicationRecord
+  belongs_to :address
   has_many :cities
 
-  validates :name, presence: true
-  validates :acronym, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :acronym, presence: true, uniqueness: true
 end
 
 # == Schema Information
