@@ -7,6 +7,7 @@ class Company < ApplicationRecord
   has_many :users
   has_many :carriers
   has_many :customers
+  has_many :addresses, as: :addressable
 
   validates :name, presence: true, uniqueness: true
 end
